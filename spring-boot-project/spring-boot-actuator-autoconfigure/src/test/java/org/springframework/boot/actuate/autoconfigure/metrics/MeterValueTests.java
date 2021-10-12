@@ -59,6 +59,12 @@ class MeterValueTests {
 	}
 
 	@Test
+	void getValueForTimerWhenFromNumberStringShouldReturnMsToNanosValue() {
+		MeterValue meterValue = MeterValue.valueOf("123d");
+		assertThat(meterValue.getValue(Type.TIMER)).isEqualTo(1.06E+16);
+	}
+
+	@Test
 	void getValueForTimerWhenFromNumberStringShouldMsToNanosValue() {
 		MeterValue meterValue = MeterValue.valueOf("123");
 		assertThat(meterValue.getValue(Type.TIMER)).isEqualTo(123000000);
